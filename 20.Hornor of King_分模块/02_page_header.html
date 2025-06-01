@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者荣耀-header</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <style>
+
+    .header{
+      background-color:rgba(0,0,0, 0.7)
+    }
+    .area{
+      display:flex;
+      justify-content:space-between;
+      height:80px;
+    }
+    /* 左侧区域 */
+    .left-area{
+      /* 里面的a元素会拉伸有宽度才可以做相对定位 */
+      display:flex;
+    }
+    .left-area .logo a{
+      position:relative;
+      top:50%;
+      transform: translate(0,-50%);
+      display:block;
+      text-indent:-9999px;
+      height:51px;
+      width:192px;
+      background:url(./image/Honor\ of\ King_logo.jpg) center center no-repeat;
+    }
+    .left-area .nav-list{
+      display:flex;
+    }
+    .left-area .nav-list .item{
+      width:110px;
+      margin-left:5px;
+    }    
+    .left-area .nav-list .item:hover,.left-area .nav-list .item .active{
+      background: url(./image/gold.png) right bottom /cover no-repeat;
+    }
+    .left-area .nav-list .item:hover a,.left-area .nav-list .item .active a{
+      color:rgb(241, 219, 14);
+      font-weight:850;
+    }
+    .left-area .nav-list .item:hover .desc,.left-area .nav-list .item .active .desc{
+      color:rgb(219, 213, 121);
+    }
+    .left-area .nav-list .item a{
+      display:block;
+      font-size:18px;
+      line-height:1.2;
+      box-sizing:border-box;
+      padding-top:20px;
+      color:#c9c9dd;
+      text-align:center;
+    }
+    .left-area .nav-list .item a .desc{
+      display:block;
+      font-size:12px;
+      padding-top:5px;
+      color:#858792;
+    }
+    .left-area .search{
+
+    }
+    .left-area .search a{
+      display:block;
+      position:relative;
+      top:35%;
+      margin-left:25px;
+      width:27px;
+      height:26px;
+      background:url(./image/search.png) center center /contain no-repeat;
+    }
+    /* 右侧区域 */
+    .right-area{
+      display:flex;
+    }
+    .right-area .more{
+      position:relative;
+      top:28%;
+      margin-left:12px;
+      width:190px;
+      height:35px;
+      border:#858792 solid 1px;
+      border-radius:12px;
+      font-size:16px;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="area header_wrapper">
+      <!-- 左边 -->
+      <div class="left-area">
+        <!-- logo，a放logo文字有利于SEO -->
+        <h1 class="logo">
+          <a href="#">王者荣耀</a>
+        </h1>
+        <!-- 导航栏 -->
+        <ul class="nav-list">
+          <li class="item">
+            <a href="#">
+              首页
+              <span class="desc">
+                HOME
+              </span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#">
+              游戏资料
+              <span class="desc">
+                DATA
+              </span>
+            </a>
+            <li class="item">
+              <a href="#">
+                赛事中心
+                <span class="desc">
+                  MATCH
+                </span>
+              </a>
+          </li>
+          <li class="item">
+            <a href="#">
+              王者文化
+              <span class="desc">
+                CULTURE
+              </span>
+            </a>
+          </li>
+            <li class="item">
+              <a href="#">
+                玩家支持
+                <span class="desc">
+                  PLAYER
+                </span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="#">
+                IP新游
+                <span class="desc">
+                  NEW GAMES
+                </span>
+              </a>
+            </li>
+        </ul>
+        <!-- 搜索图标 -->
+        <div class="search">
+          <a href="#"></a>
+        </div>
+      </div>
+      <!-- 右边 -->
+      <div class="right-area">
+        <input class="more" type="text" placeholder="搜索更多精彩内容">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

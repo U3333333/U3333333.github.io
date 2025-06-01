@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<style>
+  /* 重置代码 */
+  a{
+    text-decoration: none;
+  }
+  /* 布局代码 */
+  /* 调宽度&居中 */
+  .item{
+    width:140px;
+    margin:0 auto;
+  }
+  /* 讲图片下面的像素去除,用vertical-align或者把img改成块级元素都可以解决 */
+  .item .top img{
+    vertical-align:top;
+  }
+  /* 父级元素设置position：relative */
+  .item .top{
+    position:relative;
+  }
+  /* 皇冠 */
+    .item .top .crown{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 40px;
+    height: 40px;
+    background-image: url(./Sprite/icon皇冠.png);
+    background-position:-135px -220px;
+  }
+  /* 透明cover设置绝对定位,在crown上层 */
+  .item .top .cover{
+    position:absolute;
+    top:0;
+    left:0;
+    width:140px;
+    height:140px;
+    background-image: url(./Sprite/coverall透明阴影.png);
+    background-position:0 0;
+  }
+  /* 灰色下边框 */
+  .item .top .info{
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    height:27px;
+    background-image:url(./Sprite/coverall透明阴影.png);
+    background-position:0 -537px;
+    color:rgb(204, 206, 210,0.9);
+    font-size:12px;
+    line-height:27px;
+    /* 设置内边距将子元素耳机图标间隔开 */
+    padding-left:10px;
+  }
+  /* 灰色下边框里的耳机图标 */
+  .item .top .info .icon1{
+    display:inline-block;
+    width: 14px;
+    height: 11px;
+    background-image:url(./Sprite/icon播放按钮.png);
+    background-position: 0 -24px;
+  }
+  /* 播放量 */
+  .item .top .info .count{
+    /* 设置margin将兄弟元素耳机间隔开 */
+    margin-left:4px;
+  }
+  /* 播放按钮 */
+  .item .top .info .icon2{
+    position:absolute;
+    right:10px;
+    bottom:5px;
+    display:inline-block;
+    width: 16px;
+    height: 17px;
+    background-image:url(./Sprite/icon播放按钮.png);
+    background-position: 0 0;
+  }
+  /* 文字间距调试 */
+  .item .bottom{
+    display:block;
+    font-size:13.5px;
+    color:#333;
+    line-height: 18px;
+    margin-top:5px;
+  }
+  /* 悬浮文字显示下划线 */
+  .item .bottom:hover{
+    text-decoration:underline; 
+  }
+</style>
+
+</head>
+
+<body>
+  
+  <div class="item">
+
+<!-- 上半部分图片 -->
+    <div class="top">
+      <img src="./Sprite/向日葵.jpg" alt="向日葵" class="top-img">
+      <i class="crown"><a class="cover" href="https://music.163.com/#/playlist?id=2065854146"></a></i>
+      <div class="info">
+        <i class="icon1"></i>
+        <span class="count">3369万</span>
+        <i class="icon2"></i>
+      </div>
+      </div>
+
+<!-- 下半部分文案 -->
+    <a class="bottom" href="https://music.163.com/#/playlist?id=2065854146">
+      古典清香 I 我的茶馆里住着巴赫与肖邦
+    </a>
+
+  </div>
+
+
+
+</body>
+</html>

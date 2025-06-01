@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../头条热榜/reset.css">
+  <style>
+    /* 整体 */
+    ul>li>a{
+      display:inline-block;
+    }
+    li>a>div:hover{
+      color:#f04142;
+    }
+    ul>li{
+      margin-top:10px;
+    }
+    /* 局部序号 */
+    .ranking{
+      display: inline-block;
+      width:18px;
+      height:24px;
+      color:#333;
+      margin-right:1px;
+      text-align:center;
+      line-height:24px;
+      font-weight:700;
+      font-size:16px;
+    }
+
+    /* 伪类结构，改变序号前几个的颜色 */
+    ul>li:nth-child(1) .ranking{
+    color:#f04142;
+    }
+    ul>li:nth-child(2) .ranking{
+    color:green;
+    }
+    ul>li:nth-child(3) .ranking{
+    color:blue;
+    }
+    /* 局部文本 */
+    .news{
+      display:inline;
+    }
+    /* 局部icon */
+    .icon{
+      display:inline-block;
+      width:20px;
+      height:20px;
+      background-image:url(./hotboard_boom.10506442.svg);
+      background-size:contain;
+      background-repeat:no-repeat;
+      vertical-align:middle;
+      position:relative;
+      bottom:2px;
+      left:4xp;    }
+    .icon.hot{
+      background-image:url(./hotboard_hot.svg);
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="item">
+      <a href="https://www.toutiao.com/ target="_blank">
+        <span class="ranking">1</span>
+        <div class="news">
+          习近平出席中拉论坛部长级会议开幕式
+        </div>
+        <i class="icon"></i>
+      </a>
+    </li>
+
+    <li class="item">
+      <a href="https://www.toutiao.com/ target="_blank">
+        <span class="ranking">2</span>
+        <div class="news">
+          特朗普：中美关系全面重启，对华关税不会回到145%水平
+        </div>
+        <i class="icon"></i>
+      </a>
+    </li>
+
+    <li class="item">
+      <a href="https://www.toutiao.com/ target="_blank">
+        <span class="ranking">3</span>
+        <div class="news">
+          中拉合作奏响全球南方共同发展新乐章
+        </div>
+        <i class="icon"></i>
+      </a>
+    </li>
+
+    <li class="item">
+      <a href="https://www.toutiao.com/ target="_blank">
+        <span class="ranking">4</span>
+        <div class="news">
+          杜特尔特狱中当选达沃市市长
+        </div>
+        <i class="icon hot"></i>
+      </a>
+    </li>
+
+    <li class="item">
+      <a href="https://www.toutiao.com/ target="_blank">
+        <span class="ranking">5</span>
+        <div class="news">
+          国补版iPhone16Pro被抢空
+        </div>
+        <i class="icon"></i>
+      </a>
+    </li>
+  </ul>
+
+
+</body>
+</html>

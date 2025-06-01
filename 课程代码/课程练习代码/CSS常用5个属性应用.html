@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>呆呆瓜瓜</title>
+  <!-- 引入icon -->
+   <link rel="icon" href="../image/icon.png">
+  <style>
+    .item1{
+      width: 500px;
+      background-color:bisque;
+      /* 不让div独占一行：*/
+      /* 方法一：（改变元素的特性和垂直布局。缺点有缝隙,float无缝隙）
+      display:inline-block;
+      vertical-align:top; */
+      /* 方法二：（通过浮动完成）
+      float:left；*/
+      float:left;
+    }
+    .keyword1{
+      width: 30px;
+      background-color: chartreuse;
+      color:midnightblue;
+    }
+    .style1{
+      width: 500px;
+      height: 500px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1>呆呆瓜瓜介绍</h1>
+
+  <!-- 作业页面Arya -->
+  <div class="item1">
+    <h2>呆呆</h2>
+    <img class="style1" src="../image/A.jpg"alt=呆呆>
+    <h3><span class="keyword1">呆呆</span>C嘴震惊</h3>
+  </div>
+
+  <!-- 右页面Ethan -->
+  <div class="item1">
+    <h2>瓜瓜</h2>
+    <img class="style1" src="../image/E.jpg"alt=瓜瓜>
+    <h3><span class="keyword1">瓜瓜</span>嘟嘟嘟嘟嘴亲亲</h3>
+  </div>
+
+</body>
+</html>

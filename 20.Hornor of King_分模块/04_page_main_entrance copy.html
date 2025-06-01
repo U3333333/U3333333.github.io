@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者荣耀-main-entrancen</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+
+  <style>
+/* 王者荣耀新闻栏下半部分 */
+    .main .entrance-section{
+      display:flex;
+      justify-content:space-between;
+      margin-top:10px;
+      align-items:flex-end;
+      width:100%;
+    }
+    .main .entrance-section .item{
+      flex:1;
+    }
+    .main .entrance-section .item a{
+      display:block;
+      width:100%;
+      overflow:hidden;
+    }
+    .main .entrance-section .item a img{
+      height:100%;
+      width:100%;
+      transition:transform 80ms ease-out;
+    }
+    .main .entrance-section .item a:hover img{
+      transform:scale(1.1);
+    }
+/* 王者荣耀新闻栏下半部分结束 */
+  </style>
+
+</head>
+
+
+<body>
+  
+  <div class="main main_wrapper">
+
+<!-- 王者荣耀新闻栏下半部分 -->
+    <!-- 四个列表图标 -->
+    <ul class="entrance-section">
+      <li class="item">
+        <a href="#">
+          <img src="./image/纪念卡片.png" alt="纪念卡片">
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <img src="./image/人才计划.png" alt="人才计划">
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <img src="./image/高校菁英杯.png" alt="高校菁英杯">
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <img src="./image/高校联赛.png" alt="高校联赛">
+        </a>
+      </li>
+    </ul><!-- 王者荣耀新闻栏下半部分结束 -->
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者荣耀-main-content-1</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/video_list.css">
+
+  <style>
+    /* 整体布局 */
+    /* 上部分标题栏section-header样式 */
+    .main .section-header{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      padding-top:30px;
+      width:100%
+    }
+    .section-title{
+      padding-right:15px;
+    }
+    /* icon可封装 */
+    .section-title .section-icon{
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-top: 2px;
+      margin-right: 4px;
+      vertical-align: top;
+      background:url(./image/section-icon.jpg);
+    }
+    .section-title .play{
+      background-position:-8px -149px;
+    }
+    .section-title .more{
+      background-position:-11px -43px;
+    }
+    .section-title a:hover{
+      color:gold;
+    }
+    /* 下部分 左右布局 */
+    .best-section{
+      display:flex;
+      width:100%;
+      height:400px;
+      padding-top:20px;
+    }
+    /* 左边 */
+    .best-section .section-nav {
+      flex: 1;
+      max-height: 400px; /* 或根据实际需求自定义高度 */
+      overflow-y: auto;  /* 添加垂直滚动条 */
+      padding:0 20px 0 20px; /* 避免内容贴边 */
+      font-size:16px;
+      font-weight:500;
+      text-align:center;
+      background-color: #eee;
+      border-radius:5px solid transparent;
+    }
+    .section-nav .nav-list li {
+      margin: 5px 0;
+      background-color: rgba(201, 191, 215,.6);
+    }
+    .section-nav .nav-list li a {
+      padding: 6px 12px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    .section-nav .nav-list li a:hover {
+      background-color: #eee;
+      border-radius: 4px;
+    }
+    /* 右边 */
+    .best-section .section-video{
+      width:1012px;
+    }
+    .best-section .section-video .video_keyword{
+      display:flex;
+      justify-content: space-between;
+      flex-wrap:wrap;
+      padding:10px 10px;
+    }
+    .best-section .section-video .video_keyword .item{
+      margin-left:10px;
+      border: 2px solid rgb(199, 194, 194);
+      border-radius:12px;
+      padding:1px;
+    }
+    .best-section .section-video .video_keyword .item:hover{
+      background-color:rgba(133, 76, 167,0.5);
+      font-weight:500;
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+  <div class="main main_wrapper">
+  
+    <!-- 上部分 标题栏 -->
+    <div class="section-header">
+      <h3 class="section-title">
+        <i class="section-icon play"></i>精品栏目
+      </h3>
+      <div class="section-title">
+        <i class="section-icon more"></i>
+        <a href="#">更多</a>
+      </div>
+    </div>
+  
+    <!-- 下部分 左右布局 -->
+    <div class="best-section">
+
+      <!-- 左边导航栏 -->
+      <div class="section-nav">
+        <!-- 内容 -->
+        <ul class="nav-list">
+          <li><a href="#">首页</a></li>
+          <li><a href="#">热门推荐</a></li>
+          <li><a href="#">李白连招</a></li>
+          <li><a href="#">貂蝉极限反杀</a></li>
+          <li><a href="#">司空震教学</a></li>
+          <li><a href="#">王者五排上分</a></li>
+          <li><a href="#">五级铭文推荐</a></li>
+          <li><a href="#">野王带飞</a></li>
+          <li><a href="#">巅峰赛冲分</a></li>
+          <li><a href="#">辅助节奏带法</a></li>
+          <li><a href="#">新版打野刀</a></li>
+          <li><a href="#">更多攻略</a></li>
+          <!-- 可继续添加更多项 -->
+        </ul>
+      </div>
+  
+      <!-- 右边栏目视频 -->
+      <div class="section-video">
+        <!-- 内容 -->
+         <ul class="video_keyword">
+          <li class="item">李白连招</li>
+          <li class="item">貂蝉极限反杀</li>
+          <li class="item">嬴政满屏技能</li>
+          <li class="item">司空震教学</li>
+          <li class="item">娜可露露切后排</li>
+          <li class="item">王者五排上分</li>
+          <li class="item">辅助如何带节奏</li>
+          <li class="item">五级铭文推荐</li>
+          <li class="item">新版打野刀评测</li>
+          <li class="item">云中赛年盘点</li>
+          <li class="item">巅峰赛冲分</li>
+          <li class="item">野王带飞</li>
+          <li class="item">局内建模分析</li>
+          <li class="item">略略略略略</li>
+          <li class="item">逆风翻盘</li>
+          <li class="item">限定皮肤返场</li>
+          <li class="item">鲁班无情输出</li>
+         </ul>
+
+         <div class="video_list">
+            <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+          <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                    <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+
+         </div>
+
+      </div>
+    </div>
+  
+  </div>
+</body>
+</html>

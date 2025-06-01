@@ -1,0 +1,38 @@
+/* common.css公共样式 */
+/* 中间包裹区域 */
+.top_wrapper,.header_wrapper{
+  height:41px;
+  width:980px;
+  margin:0 auto;
+}
+
+/* 主页中间包裹区域 */
+.main_wrapper{
+  width:1400px;
+  margin:0 auto;
+}
+/* 文字不换行 */
+.nowrap_ellipsis{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+
+  /* 图标封装 */
+  .icon_type{
+    display:inline-block;
+    height:15px;
+    font-size:12px;
+    line-height:15px;
+    font-weight:500;
+    padding:0 2px;
+    border:#556cda solid 1px;
+  }
+  .icon_type_hot{
+    color:#de1e14;
+    border-color:#de1e14;
+  }
+  .icon_type_newest{
+    color:#556cda;
+    border-color:#556cda;
+  }

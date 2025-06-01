@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者荣耀-top</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <style>
+/* 页面抬头广告 */
+    .top{
+    border:1px solid #f5f5f5;
+}
+    .top .area{
+      display:flex;
+      justify-content:space-between;
+      /* 默认情况下align-items：normal(strech)，所以占满整行了 */
+      margin:0 auto;
+      line-height:41px;
+    }
+    .top .left-area{
+      display:flex;
+    }
+      .top .left-area a{
+      display:block;
+      width:150px;
+      /* 方便搜索引擎收录关键字，用缩进不显示在网页 */
+      text-indent: -9999px;
+    }
+      .top .left-area .logo_tencent{
+      /* 顺序：background: [image] [position] / [size] [repeat]; */
+      background: url(./image/top_logo_1.png) center center /cover no-repeat;
+    }
+      .top .left-area .logo_recommend{
+      /* 顺序：background: [image] [position] / [size] [repeat]; */
+      background: url(./image/黑字王者荣耀图标.png) center center /150px 130px no-repeat;
+      opacity: 0.88;
+    }
+    .top .right-area{
+      display:flex;
+    }
+    .top .right-area .item a{
+      display:block;
+      font-size:14px;
+      color: #464646;
+    }
+    .top .right-area .item .ranking{
+      margin-left:10px;
+      padding-right: 20px;
+    }
+    /* 方法一：用li或者img结合脱标定位来做文本前的企鹅logo */
+    .top .right-area .item{
+      position:relative;
+    }
+    .top .right-area .item .growth{
+      padding-left: 20px;
+    }
+    .top .right-area .item .icon-grow{
+      position:absolute;
+      width:20px;
+      height:20px;
+      top:0;
+      bottom:0;
+      margin:auto 0;
+      opacity: 0.9;
+    }
+    /* 方法二：用伪元素来做文本后的下箭头 */
+    .top .right-area .item .ranking::after{
+      content:"";
+      position:absolute;
+      right:0;
+      top:0;
+      bottom:0;
+      width:20px;
+      height:20px;
+      margin:auto 0;
+      background: url(./image/top_下箭头.png) center center / contain no-repeat;
+      /* 可以调整透明度 */
+      opacity: 0.4;
+      /* 调整图像方向 */
+      transform:rotate(270deg)
+    }
+
+  </style>
+</head>
+<body>
+  
+<!-- 页面抬头广告 -->
+  <div class="top">
+    <div class="top_wrapper area">
+      
+      <!-- top左区域 -->
+      <div class="left-area">
+        <h2 class="logo">
+          <a class=logo_tencent href="#">腾讯游戏</a>
+        </h2>
+        <div class="recommend">
+          <a class=logo_recommend href="#">王者荣耀游戏推荐</a>
+        </div>
+      </div>
+      <!-- top右区域 -->
+       <ul class="right-area">
+        <li class="item">
+          <img class="icon-grow" src="./image/top_企鹅.jpg" alt="企鹅" width=20px height=20px>
+          <a class="growth" href="#">成长守护平台</a>
+        </li>
+        <li class="item">
+          <a class="ranking" href="#">腾讯游戏排行榜</a>
+        </li>
+       </ul>
+    </div>
+  </div>
+</body>
+</html>

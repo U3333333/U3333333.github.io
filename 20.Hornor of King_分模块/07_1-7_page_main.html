@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者荣耀-main-content</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/video_list.css">
+  <style>
+
+/* 王者荣耀页面抬头广告 */
+    .top{
+    border:1px solid #f5f5f5;
+    height:42px;
+}
+    .top .area{
+      display:flex;
+      justify-content:space-between;
+      /* 默认情况下align-items：normal(strech)，所以占满整行了 */
+      margin:0 auto;
+      line-height:41px;
+    }
+    .top .top-left-area{
+      display:flex;
+    }
+    .top .top-left-area a{
+      display:block;
+      width:150px;
+      height:40px;
+      /* 方便搜索引擎收录关键字，用缩进不显示在网页 */
+      text-indent: -9999px;
+    }
+    .top .top-left-area .logo_tencent{
+      /* 顺序：background: [image] [position] / [size] [repeat]; */
+      background: url(./image/top_logo_1.png) center center /cover no-repeat;
+    }
+    .top .top-left-area .logo_recommend{
+      /* 顺序：background: [image] [position] / [size] [repeat]; */
+      background: url(./image/黑字王者荣耀图标.png) center center /150px 130px no-repeat;
+      opacity: 0.88;
+    }
+    .top .top-left-area .recommend{
+      position:relative;
+    }
+    .top .top-left-area .recommend_ad{
+      position:absolute;
+      top:0;
+      left:-150px;
+      z-index:1000;
+      display:none;
+      width:820px;
+      height:450px;
+      text-indent: 0px;
+    }
+    .recommend:hover .recommend_ad{
+      display:block;
+    }
+    .top .top-right-area{
+      display:flex;
+    }
+    .top .top-right-area .item a{
+      display:block;
+      font-size:14px;
+      color: #464646;
+    }
+    .top .top-right-area .item .ranking{
+      margin-left:10px;
+      padding-right: 20px;
+    }
+    /* 方法一：用li或者img结合脱标定位来做文本前的企鹅logo */
+    .top .top-right-area .item{
+      position:relative;
+      height: 41px; /* 与 line-height 一致 */
+    }
+    .top .top-right-area .item .growth{
+      padding-left: 20px;
+    }
+    .top .top-right-area .item .icon-grow{
+      position:absolute;
+      width:20px;
+      height:20px;
+      top:0;
+      bottom:0;
+      margin:auto 0;
+      opacity: 0.9;
+    }
+    /* 方法二：用伪元素来做文本后的下箭头 */
+    .top .top-right-area .item .ranking::after{
+      content:"";
+      position:absolute;
+      right:0;
+      top:0;
+      bottom:0;
+      width:20px;
+      height:20px;
+      margin:auto 0;
+      background: url(./image/top_下箭头.png) center center / contain no-repeat;
+      /* 可以调整透明度 */
+      opacity: 0.4;
+      /* 调整图像方向 */
+      transform:rotate(270deg)
+    }
+/* 王者荣耀导航栏 */
+.header{
+      background-color:rgba(0,0,0, 0.7)
+    }
+    .header .dropmenu{
+      position: absolute;
+      top:124px;
+      left:0;
+      right:0;
+      z-index:101;
+      height:0px;
+      background-color: rgba(0,0,0,.7);
+    }
+    .header:hover .dropmenu{
+      height:285px;
+    }
+    .header .dropmenu .inner{
+      display:none;
+      position: absolute;
+      top:5px;
+      left:0;
+      right:0;
+      width:940px;
+      height:100%;
+      box-sizing:border-box;
+      padding:15px 0 30px 50px;
+      margin:0 auto;
+    }
+    .header:hover .dropmenu .inner{
+      display:flex;
+    }
+    .dropmenu .inner dl{
+      width:117px;
+      text-align: center;
+      color:#b5b7c3;
+    }
+    .dropmenu .inner dd{
+      height:30px;
+      line-height:30px;
+    }
+    .dropmenu .inner dd:hover{
+      color:#f3c258;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+
+    .area{
+      display:flex;
+      justify-content:space-between;
+      height:80px;
+    }
+    /* 左侧区域 */
+    .header-left-area{
+      /* 里面的a元素会拉伸有宽度才可以做相对定位 */
+      display:flex;
+    }
+    .header-left-area .logo a{
+      position:relative;
+      top:50%;
+      transform: translate(0,-50%);
+      display:block;
+      text-indent:-9999px;
+      height:51px;
+      width:192px;
+      background:url(./image/Honor\ of\ King_logo.jpg) center center no-repeat;
+    }
+    .header-left-area .nav-list{
+      display:flex;
+    }
+    .header-left-area .nav-list .item{
+      width:110px;
+      margin-left:5px;
+    }    
+    .header-left-area .nav-list .item:hover,.header-left-area .nav-list .item .active{
+      background: url(./image/gold.png) right bottom /cover no-repeat;
+    }
+    .header-left-area .nav-list .item:hover a,.header-left-area .nav-list .item .active a{
+      color:rgb(241, 219, 14);
+      font-weight:850;
+    }
+    .header-left-area .nav-list .item:hover .desc,.header-left-area .nav-list .item .active .desc{
+      color:rgb(219, 213, 121);
+    }
+    .header-left-area .nav-list .item a{
+      display:block;
+      font-size:18px;
+      line-height:1.2;
+      box-sizing:border-box;
+      padding-top:20px;
+      color:#c9c9dd;
+      text-align:center;
+    }
+    .header-left-area .nav-list .item a .desc{
+      display:block;
+      font-size:12px;
+      padding-top:5px;
+      color:#858792;
+    }
+    .header-left-area .search{
+
+    }
+    .header-left-area .search a{
+      display:block;
+      position:relative;
+      top:35%;
+      margin-left:25px;
+      width:27px;
+      height:26px;
+      background:url(./image/search.png) center center /contain no-repeat;
+    }
+    /* 右侧区域 */
+    .header-right-area{
+      display:flex;
+    }
+    .header-right-area .more{
+      position:relative;
+      top:28%;
+      margin-left:12px;
+      width:190px;
+      height:35px;
+      border:#858792 solid 1px;
+      border-radius:12px;
+      font-size:16px;
+      text-align:center;
+    }
+
+/* 王者荣耀新闻栏上半部分 */
+    .news-section{
+      display:flex;
+      box-sizing:border-box;
+      align-items:stretch;
+      margin-top:20px;
+    }
+    /* 左边轮播图 */ 
+    /* 如果中间还有一个区域可以用（flex：1）自动拉伸填补剩余区域 */
+    .news-section .news-banner{
+      width:709px;
+      height:auto;
+    }
+    .news-section .news-banner .image-list{
+      position:relative;
+      overflow:hidden;
+      height:357px;
+    }
+    /* 每张图片堆叠在一起，只有被选中那张显示 */
+    .news-section .news-banner .image-list .item{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      z-index:0;
+    }
+    .news-section .news-banner a{
+      display:block;
+    }
+    /* 图片填充 */
+    .news-section .news-banner .image-list .item a img{
+      height:357px;
+      width:100%;
+    }
+    /* 隐藏 radio 按钮 */
+    .news-banner .slider-wrapper input[type="radio"] {
+      display: none;
+    }
+    /* 选中状态显示对应图片 */
+    #slide1:checked ~ .image-list .item1,
+    #slide2:checked ~ .image-list .item2,
+    #slide3:checked ~ .image-list .item3,
+    #slide4:checked ~ .image-list .item4,
+    #slide5:checked ~ .image-list .item5 {
+      opacity: 1;
+      z-index: 1;
+    }
+    .news-banner .image-nav .nav-item label {
+      display: block;
+      color: #e5e6ef;
+    }
+    .news-banner .image-nav .nav-item label:hover {
+      color: orange;
+      background-color: #323648;
+    }
+    .news-section .news-banner .image-nav{
+      display:flex;
+    }
+    .news-section .news-banner .image-nav .nav-item{
+      flex:1;
+      height:42px;
+      line-height:42px;
+      text-align:center;
+      font-size:16px;
+      border-top: 1px #323648 solid;
+      border-right: 1px #323648 solid;
+      background-color: #0e132c;
+      cursor: pointer;
+      vertical-align: bottom;
+      margin-left:0;
+    }
+    .news-banner .image-nav li:last-child {
+      border-right:none;
+    }
+
+    /* <!-- 右边新闻列表 --> */
+    .news-section .news-list{
+      position:relative;
+      display:inline-block;
+      height:auto;
+      width:687px;
+      background:url(./image/news-bg.png) center center /cover no-repeat;
+    }
+    /* 第一行：title_icon精灵图样式引用 */
+    .title_icon{
+      background-image:url(./image/news-titles.jpg);
+      background-size: 250px auto;
+}
+    .news-list .title{
+      display:block;
+      width: 250px;
+      height: 53px;
+      margin: 7px 0 14px 19px;
+      background-position:0 -200px;
+    }
+    .news-list .title::after{
+      content:"";
+      position:absolute;
+      right:15px;
+      top:8%;
+      display:block;
+      width:19px;
+      height:21px;
+      background:url(./image/icons.png)no-repeat -150px -50px;
+    }
+    /* 新闻列表 */
+      .news-title-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 650px;
+      color: #556cda;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 16px;
+      line-height: 41px;
+      text-align: left;
+      box-sizing: border-box;
+      border-bottom: #d8e1fa solid 1px;
+      margin: 2px 20px 0 20px;
+    }
+    /* 首行 */
+    .news-title-item:nth-child(1){
+      font-size:20px;
+      padding-left:10px;
+    }
+    /* 一致格式列表 */
+    /* 热门前缀-已封装 */
+    /* .news-title-item span:nth-child(1){
+      align-self:center;
+      font-size:12px;
+      line-height:15px;
+      font-weight:400;
+      padding:0 2px;
+      border:#556cda solid 1px;
+    } */
+    .news-title-item span:nth-child(2){
+      flex:1;
+      /* flex为1的时候要在对应块元素设置overflow：hidden才能隐藏多于内容 */
+      overflow:hidden;
+      margin-left:10px
+    }
+        /* 动画 */
+    .news-title-item span:nth-child(2):hover{
+      font-size:1.2em;
+      font-weight:500;
+      transform:translateX(5px);
+      transition:.3s ease-in-out;
+    }
+    /* 时间后缀 */
+    .news-title-item span:nth-child(3){
+      font-size:13px;
+      font-weight:400;
+      color:gainsboro;
+    }
+    /* 最后一行 */
+    .news-title-item:last-child{
+      border-bottom:none;
+    }
+    /* 跳色 */
+    .news-title-item:nth-child(n+5){
+      color:#333;
+    }
+/* 王者荣耀新闻栏上半部分结束 */
+
+/* 王者荣耀新闻栏下半部分 */
+.main .entrance-section{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      width:100%;
+    }
+    .main .entrance-section .item{
+      flex:1;
+    }
+    .main .entrance-section .item a{
+      display:block;
+      width:100%;
+      overflow:hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+    .main .entrance-section .item a img{
+      height:100%;
+      width:100%;
+      transition:transform 80ms ease-out;
+    }
+    .main .entrance-section .item a:hover img{
+      transform:scale(1.1);
+    }
+/* 王者荣耀新闻栏下半部分结束 */
+/* 内容上半部分整体布局 */
+
+    /* 上部分标题栏section-header样式 */
+    .main .section-header{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      padding-top:20px;
+      width:100%
+    }
+    .section-title{
+      padding-right:15px;
+    }
+    /* icon可封装 */
+    .section-title .section-icon{
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-top: 2px;
+      margin-right: 4px;
+      vertical-align: top;
+      background:url(./image/section-icon.jpg);
+    }
+    .section-title .play{
+      background-position:-8px -149px;
+    }
+    .section-title .more{
+      background-position:-11px -43px;
+    }
+    .section-title a:hover{
+      color:gold;
+    }
+    /* 下部分 左右布局 */
+    .best-section{
+      display:flex;
+      width:100%;
+      height:400px;
+      padding-top:20px;
+    }
+    /* 左边 */
+    .best-section .section-nav {
+      flex: 1;
+      max-height: 400px; /* 或根据实际需求自定义高度 */
+      overflow-y: auto;  /* 添加垂直滚动条 */
+      padding:0 20px 0 20px; /* 避免内容贴边 */
+      font-size:16px;
+      font-weight:500;
+      text-align:center;
+      background-color: rgba(174, 179, 200, 0.2);;
+      border-radius:5px;
+    }
+    .section-nav .nav-list li {
+      margin: 5px 0;
+      background-color: rgba(85, 108, 218, 0.3);
+    }
+    .section-nav .nav-list li a {
+      padding: 6px 12px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    .section-nav .nav-list li a:hover {
+      background-color: #eee;
+      border-radius: 4px;
+    }
+    /* 右边 */
+    .best-section .section-video{
+      width:1012px;
+    }
+    .best-section .section-video .video_keyword{
+      display:flex;
+      justify-content: space-between;
+      flex-wrap:wrap;
+      padding:10px 10px;
+    }
+    .best-section .section-video .video_keyword .item{
+      margin-left:10px;
+      border: 2px solid rgb(199, 197, 194);
+      border-radius:12px;
+      padding:1px;
+    }
+    .best-section .section-video .video_keyword .item:hover{
+      background-color:#f3c258;
+      font-weight:500;
+    }
+/* 内容下半部分整体布局 */
+    /* 整体布局 */
+    .main_content_down{
+      display:flex;
+      width:100%;
+      padding-top:20px;
+    }
+    /* 左边右边统一布局 */
+    .section-hero-left, .section-strategy-right {
+    width: 50%;
+    box-sizing: border-box; /* 确保padding不影响宽度计算 */
+  }
+    /* 上部分标题栏section-header样式 */
+    .section-header-harf{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding-top:30px;
+    width:100%
+    }
+    .section-title{
+      padding-right:15px;
+    }
+    /* icon可封装 */
+    .section-title .piece{
+      background-position:-9px -220px;
+    }
+    /* 中部 */
+    .section-bar{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top:20px;
+      height:32px;
+      line-height: 32px;
+      background-color: #f5f5f5;
+      width:100%;    
+    }
+    .section-bar>.line{
+      width:1px;
+      height:20px;
+      background-color:#e1e1e1;
+    }
+    .section-bar>.item{
+      flex:1;
+      color:#999;
+      text-align:center;
+      cursor:pointer;
+      border-bottom:3px solid transparent;
+    }
+    .section-bar>.item:hover,.section-bar>.item.active{
+      color:#333;
+      border-bottom-color:#f3c258;
+    }
+    /* 下部 英雄角色 */
+    .section-hero-type{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap:wrap;
+      width:100%;
+      margin-top:10px;
+      border:3px solid #e1e1e1;
+      border-radius:  8px 0 8px 0;
+      box-shadow: 1px 1px 3px #999;
+    }
+    .section-hero-type .hero-item .hero-pic{
+      background:url(./image/庄周.jpg) center center /cover no-repeat;
+      width:66px;
+      height:66px;
+      border:2px solid #55a6f6;
+      border-radius: 8px 0 8px 0;
+      margin:10px 0 0 0;
+    }
+    .section-hero-type .hero-item span{
+      display: block;
+      text-align: center;
+    }
+    .section-hero-type .hero-item{
+      margin:5px 20px 0 20px;
+    }
+    .section-hero-type .hero-item:hover{
+      cursor:pointer;
+    }
+    /* 右边 */
+    /* 上标题 */
+    .section-strategy-right .section-title .strategy{
+      background-position:-9px -115px;
+    }
+    /* 中下攻略内容 */
+    .section-strategy-right .strategy-list{
+      display:block;
+      margin:10px 5px 0 10px;
+      width:100%;
+      font-size:18px;
+      max-height:400px;
+      overflow-y: auto;
+      padding:0 10px 0 20px;
+      box-sizing: border-box;
+    }
+    .section-strategy-right .strategy-list .item{
+      line-height:30px;
+      text-align:left;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+      margin-top:8px;
+      transition: transform 0.3s ease; /* 添加过渡动画 */
+    }
+    .section-strategy-right .strategy-list .item:hover{
+      transform:translate(20px);
+      background-color:#f3c258;
+      border-radius: 20px;
+    }
+    /* 只能改变第一个字的颜色 */
+    .strategy-list .item::first-letter {
+    color: #f3c258; /* 王者荣耀常用的金色 */
+    font-weight: bold;
+    }
+/*列表 */
+.main .skill {
+      width: 100%;
+      margin: 20px auto;
+      text-align: center;
+      border-radius: 5px;
+      border-collapse: collapse;
+    }
+    .main .skill thead tr {
+      background-color:rgba(85, 108, 218, 0.3);
+      height: 40px;
+    }
+    .main .skill th {
+      padding: 10px;
+      border-bottom: 5px solid transparent;
+      box-sizing: content-box;
+    }
+    .main .skill th:hover {
+      border-bottom-color: #f3c258;
+    }
+    .main .skill tbody {
+      background-color: rgba(220, 223, 232, 0.1);
+    }
+    .main .skill tbody td {
+      height: 85px;
+      padding: 10px;
+    }
+    .main .skill .icon {
+      background:url(./image/浮生.jpg) center center /contain no-repeat;
+      background-color:rgba(209, 211, 218, 0.2);
+      border-radius: 5px;
+    }
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  
+<!-- 王者荣耀页面抬头广告 -->
+  <div class="top">
+    <div class="top_wrapper area">
+      
+      <!-- top左区域 -->
+      <div class="top-left-area">
+
+        <h2 class="logo">
+          <a class="logo_tencent" href="#">腾讯游戏</a>
+        </h2>
+
+        <div class="recommend">
+          <a class="logo_recommend" href="#">王者荣耀游戏推荐</a>
+        <!-- hover嵌套广告 -->
+          <a class="recommend_ad" href="#">
+            <img src="./image/王者荣耀广告.jpg" alt="王者荣耀广告" width="820" height="450">
+          </a>
+        </div>
+
+      </div>
+      <!-- top右区域 -->
+       <ul class="top-right-area">
+        <li class="item">
+          <img class="icon-grow" src="./image/top_企鹅.jpg" alt="企鹅" width=20px height=20px>
+          <a class="growth" href="#">成长守护平台</a>
+        </li>
+        <li class="item">
+          <a class="ranking" href="#">腾讯游戏排行榜</a>
+        </li>
+       </ul>
+    </div>
+  </div>
+
+<!-- 王者荣耀导航栏 -->
+  <div class="header">
+    <div class="area header_wrapper">
+      <!-- 左边 -->
+      <div class="header-left-area">
+        <!-- logo，a放logo文字有利于SEO -->
+        <h1 class="logo">
+          <a href="#">王者荣耀</a>
+        </h1>
+        <!-- 导航栏 -->
+        <ul class="nav-list">
+          <li class="item">
+            <a href="#">
+              首页
+              <span class="desc">
+                HOME
+              </span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#">
+              游戏资料
+              <span class="desc">
+                DATA
+              </span>
+            </a>
+          </li>
+            <li class="item">
+              <a href="#">
+                赛事中心
+                <span class="desc">
+                  MATCH
+                </span>
+              </a>
+          </li>
+          <li class="item">
+            <a href="#">
+              王者文化
+              <span class="desc">
+                CULTURE
+              </span>
+            </a>
+          </li>
+            <li class="item">
+              <a href="#">
+                玩家支持
+                <span class="desc">
+                  PLAYER
+                </span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="#">
+                IP新游
+                <span class="desc">
+                  NEW GAMES
+                </span>
+              </a>
+            </li>
+        </ul>
+        <!-- 搜索图标 -->
+        <div class="search">
+          <a href="#"></a>
+        </div>
+      </div>
+      <!-- 右边 -->
+      <div class="header-right-area">
+        <input class="more" type="text" placeholder="搜索更多精彩内容">
+      </div>
+    </div><!-- area header_wrapper -->
+          <!-- 下拉菜单 -->
+          <div class="dropmenu">
+            <div class="inner">
+              <dl>
+                <dd>更多讯息:</dd>
+              </dl>
+              <dl>
+                <dd>版本AA</dd>
+                <dd>版本BB</dd>
+                <dd>版本CC</dd>
+                <dd>版本DD</dd>
+                <dd>版本EE</dd>
+              </dl>
+              <dl>
+                <dd>版本AA</dd>
+                <dd>版本BB</dd>
+                <dd>版本CC</dd>
+                <dd>版本DD</dd>
+                <dd>版本EE</dd>
+              </dl>
+              <dl>
+                <dd>版本AA</dd>
+                <dd>版本BB</dd>
+                <dd>版本CC</dd>
+                <dd>版本DD</dd>
+                <dd>版本EE</dd>
+              </dl>
+              <dl>
+                <dd>版本AA</dd>
+                <dd>版本BB</dd>
+                <dd>版本CC</dd>
+                <dd>版本DD</dd>
+                <dd>版本EE</dd>
+              </dl>
+              <dl>
+                <dd>版本AA</dd>
+                <dd>版本BB</dd>
+                <dd>版本CC</dd>
+                <dd>版本DD</dd>
+                <dd>版本EE</dd>
+              </dl>
+              <dl>
+                <dd>版本AA</dd>
+                <dd>版本BB</dd>
+                <dd>版本CC</dd>
+                <dd>版本DD</dd>
+                <dd>版本EE</dd>
+              </dl>
+            </div>
+          </div>  
+  </div> <!-- header -->
+
+<!-- main---content---box---start-->
+<div class="main main_wrapper">
+
+  <!-- 王者荣耀新闻栏上半部分 -->
+      <div class="news-section">
+  
+        <!-- 左边轮播图 -->
+        <div class="news-banner">
+          <!-- 单选按钮 -->  <!-- 单选按钮和label放入一个容器，方便管理 -->
+           <div class="slider-wrapper">
+            <input type="radio" name="slider" id="slide1">
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4" checked>
+            <input type="radio" name="slider" id="slide5">
+          <!-- 图片区域 -->
+          <ul class="image-list">
+            <li class="item item1">
+              <a href="#">
+                <img src="./image/news1.png" alt="圆满收官">
+              </a>
+            </li>
+            <li class="item item2">
+              <a href="#">
+                <img src="./image/news2.jpg" alt="五五开虾">
+              </a>
+            </li>
+            <li class="item item3">
+              <a href="#">
+                <img src="./image/news3.jpg" alt="大型结实搭子现场">
+              </a>
+            </li>
+            <li class="item item4">
+              <a href="#">
+                <img src="./image/new4.jpg" alt="神树祈愿">
+              </a>
+            </li>
+            <li class="item item5">
+              <a href="#">
+                <img src="./image/news5.png" alt="线下赛点公示">
+              </a>
+            </li>
+          </ul>
+          <!-- 导航栏 -->
+          <ul class="image-nav">
+            <li class="nav-item">
+              <label for="slide1">圆满收官</label>
+            </li>
+            <li class="nav-item">
+              <label for="slide2">五五开虾</label>
+            </li>
+            <li class="nav-item">
+              <label for="slide3">大型结实搭子现场</label>
+            </li>
+            <li class="nav-item">
+              <label for="slide4">神树祈愿</label>
+            </li>
+            <li class="nav-item">
+              <label for="slide5">线下赛点公式</label>
+            </li>
+          </ul>
+          </div>
+        </div>
+  
+        <!-- 右边新闻列表 -->
+        <div class="news-list">
+          <div class="title_icon title">
+            <a href="#"></a>
+          </div>
+          <div class="news-title">
+            <a class="news-title news-title-item" href="#">全民电竞狂欢，五一嗨翻孝感!第十一届王者荣耀全国大赛圆满收官</a>
+            <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_hot">热门</span><span> 诚邀王者荣耀电竞派对，孝感热辣开虾啦!!</span><span>04-29</span></a>
+            <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_hot">热门</span><span> 大型结识搭子现场——线下见面，快乐翻倍!</span><span>04-28</span></a>
+            <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_hot">热门</span><span> 电竞派对神树祈愿活动上线!豪华好礼等你拿!</span><span>04-27</span></a>
+            <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_newest">最新</span><span> 赛点公示 | 第十一届王者荣耀全国大赛本周线下赛点一览</span><span>04-26</span></a>
+            <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_newest">最新</span><span> 王者荣耀电竞派对「节目单+嘉宾行程」高能剧透!</span><span>04-25</span></a>
+            <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_newest">最新</span><span> 战至巅峰老友聚会!名校名企巅峰对决!电竞舞台的快乐你想象不到<span>王者荣耀电竞派对</span></span><span>04-24</span></a>
+          </div>
+        </div>
+  
+      </div><!-- 王者荣耀新闻栏上半部分结束 -->
+  
+  <!-- 王者荣耀新闻栏下半部分 -->
+      <!-- 四个列表图标 -->
+      <ul class="entrance-section">
+        <li class="item">
+          <a href="#">
+            <img src="./image/纪念卡片.png" alt="纪念卡片">
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <img src="./image/人才计划.png" alt="人才计划">
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <img src="./image/高校菁英杯.png" alt="高校菁英杯">
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <img src="./image/高校联赛.png" alt="高校联赛">
+          </a>
+        </li>
+      </ul><!-- 王者荣耀新闻栏下半部分结束 -->
+
+
+      
+<!-- 上半部分的精品栏目（含左右结构：导航列表 + 视频关键词区域） -->
+  <div class="main_content_up">
+    <!-- 上部分 标题栏 -->
+    <div class="section-header">
+      <h3 class="section-title">
+        <i class="section-icon play"></i>精品栏目
+      </h3>
+      <div class="section-title">
+        <i class="section-icon more"></i>
+        <a href="#">更多</a>
+      </div>
+    </div>
+  
+    <!-- 下部分 左右布局 -->
+    <div class="best-section">
+
+      <!-- 左边导航栏 -->
+      <div class="section-nav">
+        <!-- 内容 -->
+        <ul class="nav-list">
+          <li><a href="#">首页</a></li>
+          <li><a href="#">热门推荐</a></li>
+          <li><a href="#">李白连招</a></li>
+          <li><a href="#">貂蝉极限反杀</a></li>
+          <li><a href="#">司空震教学</a></li>
+          <li><a href="#">王者五排上分</a></li>
+          <li><a href="#">五级铭文推荐</a></li>
+          <li><a href="#">野王带飞</a></li>
+          <li><a href="#">巅峰赛冲分</a></li>
+          <li><a href="#">辅助节奏带法</a></li>
+          <li><a href="#">新版打野刀</a></li>
+          <li><a href="#">更多攻略</a></li>
+          <!-- 可继续添加更多项 -->
+        </ul>
+      </div>
+  
+      <!-- 右边栏目视频 -->
+      <div class="section-video">
+        <!-- 内容 -->
+         <ul class="video_keyword">
+          <li class="item">李白连招</li>
+          <li class="item">貂蝉极限反杀</li>
+          <li class="item">嬴政满屏技能</li>
+          <li class="item">司空震教学</li>
+          <li class="item">娜可露露切后排</li>
+          <li class="item">王者五排上分</li>
+          <li class="item">辅助如何带节奏</li>
+          <li class="item">五级铭文推荐</li>
+          <li class="item">新版打野刀评测</li>
+          <li class="item">云中赛年盘点</li>
+          <li class="item">巅峰赛冲分</li>
+          <li class="item">野王带飞</li>
+          <li class="item">局内建模分析</li>
+          <li class="item">略略略略略</li>
+          <li class="item">逆风翻盘</li>
+          <li class="item">限定皮肤返场</li>
+          <li class="item">鲁班无情输出</li>
+         </ul>
+
+         <div class="video_list">
+            <!-- 视频组件 -->
+          <a class="video_item" href="#">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                      <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+          <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+                    <!-- 视频组件 -->
+          <a class="video_item">
+            <!-- 图片 -->
+            <div class="ablum">
+              <img src="./image/video_item.jpg" alt="视频封装">
+              <div class="info">
+                <span class="info_count">666.88w</span>
+                <span class="info_date">2002-03-03</span>
+              </div>
+              <div class="ablum_cover">
+                <i class="ablum_icon_play"></i>
+              </div>
+            </div>
+            <!-- 文本 -->
+            <div class="desc1">
+              这是一个王者荣耀的封装视频组件,后续写到可以复用，请多多尝试。
+            </div>
+          </a>
+
+         </div>
+
+      </div>
+  </div><!--  main-content上半部分结束 -->
+
+<!-- 下半部分的英雄与攻略栏（双列布局：左侧英雄，右侧攻略） -->
+       <!-- 左右布局 -->
+        <div class="main_content_down">
+         <!-- 左边:英雄角色 -->
+          <div class="section-hero-left">
+        <!-- 上部 标题栏 -->
+        <div class="section-header-harf">
+          <h3 class="section-title">
+            <i class="section-icon piece"></i>技能攻略
+          </h3>
+        </div>
+        <!-- 中部 自选框 -->
+         <div class="section-bar">
+          <div class="item">召唤师技能</div>
+          <div class="line"></div>
+          <div class="item">局内道具</div>
+          <div class="line"></div>
+          <div class="item">英雄</div>
+          <div class="line"></div>
+         </div>
+         <!-- 英雄角色 -->
+          <div class="section-hero-type">
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+            <div class="hero-item">
+              <div class="hero-pic"></div>
+              <span>庄周</span>
+            </div>
+    
+          </div>
+    
+        </div><!--整个左边框 -->
+    
+         <!-- 右边:热门攻略 -->
+          <div class="section-strategy-right">
+            <!-- 上标题 -->
+            <div class="section-header-harf">
+              <h3 class="section-title">
+                <i class="section-icon strategy"></i>技能攻略
+              </h3>
+            </div>
+            <!-- 攻略列表 -->
+             <ul class="strategy-list">
+              <li class="item">🔥补刀关键：小兵最后一刀由你击杀可获得额外50%金币，对线期务必练习补刀。</li>
+              <li class="item">🔥射手生存：输出时保持移动（边走边A），团战等敌方关键技能交完再进场。</li>
+              <li class="item">🔥经济压制：顺风时反野＞推塔＞杀人，逆风时优先清线守塔，避免无意义团战。</li>
+              <li class="item">🔥技能保留：关键控制技能（如张飞大招）留给敌方C位，别随意交掉。</li>
+              <li class="item">🔥复活甲换装：后期预购复活甲，触发后秒换名刀/辉月（训练营多练习）。</li>
+              <li class="item">🔥对抗路细节：1级抢线升2级可压制（如吕布1技能刮中所有小兵），但注意敌方打野红开可能2级抓上。</li>
+              <li class="item">🔥打野节奏：开局根据阵容决定反野（如裴擒虎+东皇），4级后优先抓发育路，控暴君。</li>
+              <li class="item">🔥辅助职责：软辅（如孙膑）跟C位，硬辅（如牛魔）开团需看队友位置，别脱节。</li>
+              <li class="item">🔥露娜连招：基础1323，月下无限连需保持标记不断（可利用野怪跳板）。</li>
+              <li class="item">🔥貂蝉：开大后尽量在法阵内跳舞，2技能无敌帧可躲塔伤/关键技能。</li>
+              <li class="item">🔥兵线运营：10分钟后主宰先锋＞暴君，带线牵制比盲目团战更重要。</li>
+              <li class="item">🔥补刀关键：小兵最后一刀由你击杀可获得额外50%金币，对线期务必练习补刀。</li>
+              <li class="item">🔥射手生存：输出时保持移动（边走边A），团战等敌方关键技能交完再进场。</li>
+              <li class="item">🔥经济压制：顺风时反野＞推塔＞杀人，逆风时优先清线守塔，避免无意义团战。</li>
+              <li class="item">🔥技能保留：关键控制技能（如张飞大招）留给敌方C位，别随意交掉。</li>
+              <li class="item">🔥复活甲换装：后期预购复活甲，触发后秒换名刀/辉月（训练营多练习）。</li>
+              <li class="item">🔥对抗路细节：1级抢线升2级可压制（如吕布1技能刮中所有小兵），但注意敌方打野红开可能2级抓上。</li>
+              <li class="item">🔥打野节奏：开局根据阵容决定反野（如裴擒虎+东皇），4级后优先抓发育路，控暴君。</li>
+              <li class="item">🔥辅助职责：软辅（如孙膑）跟C位，硬辅（如牛魔）开团需看队友位置，别脱节。</li>
+              <li class="item">🔥露娜连招：基础1323，月下无限连需保持标记不断（可利用野怪跳板）。</li>
+            </ul>
+    
+          </div><!--整个右边框 -->
+    
+        </div><!--main-content内容下半部分结束 -->
+<!-- 技能列表 -->
+     <!-- 上部分 标题栏 -->
+     <div class="section-header">
+      <h3 class="section-title">
+        <i class="section-icon play"></i>最佳出装
+      </h3>
+    </div>
+    <table class="skill">
+      <thead>
+        <tr>
+          <th>野区霸主</th>
+          <th>五杀封神</th>
+          <th>极限反杀</th>
+          <th>控龙专家</th>
+          <th>神装出山</th>
+          <th>团战发动机</th>
+          <th>偷塔狂魔</th>
+          <th>丝血逃生</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="icon"></td>
+          <td class="icon"></td>
+          <td class="icon"></td>
+          <td class="icon"></td>
+          <td class="icon"></td>
+          <td class="icon"></td>
+          <td class="icon"></td>
+          <td class="icon"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div><!-- main---content---box---end-->
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+/* 全局样式 */
+.container{
+  position:relative;
+  background-color:#cdf2f8;
+  margin:0 auto;
+  width:500px;
+  height:500px;
+  font-size:12px;
+  line-height: 12px;
+}
+/* 聊天框公共样式 */
+.item{
+  display: inline-block;
+  width:100%;
+  height:20px;
+  margin-top:50px;
+}
+/* 标题样式 */
+.title{
+  text-align:center;
+  font-size:15px;
+  line-height: 30px;
+  background-color:rgb(29, 127, 198);
+  color:white;
+}
+/* 白色聊条框样式 */
+.trangle-1{
+  float:left;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  transform: rotate(270deg);
+  margin:10px -8px 0 10px;
+}
+.item_1{
+  float:left;
+  border-radius: 10px;
+  padding: 10px;
+  background-color:white;
+}
+/* 蓝色聊天框样式 */
+.trangle-2{
+  float:right;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(29, 127, 198);
+  transform: rotate(90deg);
+  margin:10px 10px 0 -8px;
+}
+.item_2{
+  float:right;
+  border-radius: 10px;
+  padding: 10px;
+  background-color:rgb(29, 127, 198);
+}
+/* 底部输入栏样式 */
+.item_3{
+  display:inline-block;
+  position:absolute;
+  bottom:30px;
+  left:0;
+  width:500px;
+  height:30px;
+  background-color:white;
+  border:1px solid #ccc;
+  border-left:none;
+  border-right:none;
+}
+.item_3>.input{
+  width:410px;
+  height:20px;
+  border:1px solid #ccc;
+  border-radius: 20px;
+  margin-left:10px;
+  margin-top:3px;
+}
+.item_3>.send{
+  display:inline-block;
+  text-decoration: none;
+  text-align: center;
+  width:45px;
+  height:22px;
+  line-height: 22px;
+  border-radius: 20px;
+  background-color:rgb(29, 127, 198);
+  color:white;
+  border:none;
+  margin-left:10px;
+  margin-top:3px;
+}
+</style>
+
+</head>
+
+<body>
+  
+  <div class="container">
+<!-- 弹窗标题 -->
+    <div class="title">
+      <h2>聊天窗口</h2>
+    </div>
+<!-- 上半部分聊天内容 -->
+    <div class="item">
+    <div class="trangle-1"></div>
+    <div class="item_1">你好！</div>
+    </div>
+    <div class="item">
+    <div class="trangle-2"></div>
+    <div class="item_2">我不好！</div>
+    </div>
+    <div class="item">
+    <div class="trangle-1"></div>
+    <div class="item_1">为什么？</div>
+    </div>
+    <div class="item">
+    <div class="trangle-2"></div>
+    <div class="item_2">nothing hh</div>
+    </div>
+<!-- 下部分输入消息发送框 -->
+    <div class="item_3">
+      <input class="input" type="text" placeholder="请输入消息">
+      <a href="#" class="send">发送</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

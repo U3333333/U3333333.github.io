@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者荣耀-main-news</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <style>
+
+/* 王者荣耀新闻栏上半部分 */
+    .main-news{
+    }
+    .news-section{
+      display:flex;
+      box-sizing:border-box;
+      align-items:stretch;
+    }
+    /* 左边轮播图 */ 
+    /* 如果中间还有一个区域可以用（flex：1）自动拉伸填补剩余区域 */
+    .news-section .news-banner{
+      width:709px;
+      height:auto;
+    }
+    .news-section .news-banner .image-list{
+      position:relative;
+      overflow:hidden;
+      height:357px;
+    }
+    /* 每张图片堆叠在一起，只有被选中那张显示 */
+    .news-section .news-banner .image-list .item{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      z-index:0;
+    }
+    .news-section .news-banner a{
+      display:block;
+    }
+    /* 图片填充 */
+    .news-section .news-banner .image-list .item a img{
+      height:357px;
+      width:100%;
+    }
+    /* 隐藏 radio 按钮 */
+    .news-banner .slider-wrapper input[type="radio"] {
+      display: none;
+    }
+    /* 选中状态显示对应图片 */
+    #slide1:checked ~ .image-list .item1,
+    #slide2:checked ~ .image-list .item2,
+    #slide3:checked ~ .image-list .item3,
+    #slide4:checked ~ .image-list .item4,
+    #slide5:checked ~ .image-list .item5 {
+      opacity: 1;
+      z-index: 1;
+    }
+    .news-banner .image-nav .nav-item label {
+      display: block;
+      color: #e5e6ef;
+    }
+    .news-banner .image-nav .nav-item label:hover {
+      color: orange;
+      background-color: #323648;
+    }
+    .news-section .news-banner .image-nav{
+      display:flex;
+    }
+    .news-section .news-banner .image-nav .nav-item{
+      flex:1;
+      height:42px;
+      line-height:42px;
+      text-align:center;
+      font-size:16px;
+      border-top: 1px #323648 solid;
+      border-right: 1px #323648 solid;
+      background-color: #0e132c;
+      cursor: pointer;
+      vertical-align: bottom;
+      margin-left:0;
+    }
+    .news-banner .image-nav li:last-child {
+      border-right:none;
+    }
+
+    /* <!-- 右边新闻列表 --!> */
+    .news-section .news-list{
+      position:relative;
+      display:inline-block;
+      height:auto;
+      margin:0 2px;
+      width:687px;
+      box-sizing:border-box;
+      background:url(./image/news-bg.png) no-repeat top / cover;
+      box-shadow: inset 0px 0px 6px 1px #556cda;
+      border-radius: 3px;
+    }
+    /* 第一行：title_icon精灵图样式引用 */
+    .title_icon{
+      background-image:url(./image/news-titles.jpg);
+      background-size: 250px auto;
+}
+    .news-list .title{
+      display:block;
+      width: 250px;
+      height: 53px;
+      margin: 7px 0 14px 19px;
+      background-position:0 -200px;
+    }
+    .news-list .title::after{
+      content:"";
+      position:absolute;
+      right:15px;
+      top:8%;
+      display:block;
+      width:19px;
+      height:21px;
+      background:url(./image/icons.png)no-repeat -150px -50px;
+    }
+    /* 新闻列表 */
+      .news-title-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 650px;
+      color: #556cda;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 16px;
+      line-height: 41px;
+      text-align: left;
+      box-sizing: border-box;
+      border-bottom: #d8e1fa solid 1px;
+      margin: 2px 20px 0 20px;
+    }
+    /* 首行 */
+    .news-title-item:nth-child(1){
+      font-size:20px;
+      padding-left:10px;
+    }
+    /* 一致格式列表 */
+    /* 热门前缀-已封装 */
+    /* .news-title-item span:nth-child(1){
+      align-self:center;
+      font-size:12px;
+      line-height:15px;
+      font-weight:400;
+      padding:0 2px;
+      border:#556cda solid 1px;
+    } */
+    .news-title-item span:nth-child(2){
+      flex:1;
+      /* flex为1的时候要在对应块元素设置overflow：hidden才能隐藏多于内容 */
+      overflow:hidden;
+      margin-left:10px
+    }
+        /* 动画 */
+    .news-title-item span:nth-child(2):hover{
+      font-size:1.2em;
+      font-weight:500;
+      transform:translateX(5px);
+      transition:.3s ease-in-out;
+    }
+    /* 时间后缀 */
+    .news-title-item span:nth-child(3){
+      font-size:13px;
+      font-weight:400;
+      color:gainsboro;
+    }
+    /* 最后一行 */
+    .news-title-item:last-child{
+      border-bottom:none;
+    }
+    /* 跳色 */
+    .news-title-item:nth-child(n+5){
+      color:#333;
+    }
+/* 王者荣耀新闻栏上半部分结束 */
+/* 王者荣耀新闻栏下半部分 */
+.main .entrance-section{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      width:100%;
+    }
+    .main .entrance-section .item{
+      flex:1;
+    }
+    .main .entrance-section .item a{
+      display:block;
+      width:100%;
+      overflow:hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+    .main .entrance-section .item a img{
+      height:100%;
+      width:100%;
+      transition:transform 80ms ease-out;
+    }
+    .main .entrance-section .item a:hover img{
+      transform:scale(1.1);
+    }
+/* 王者荣耀新闻栏下半部分结束 */
+
+  </style>
+</head>
+
+<body>
+  <div class="main main_wrapper">
+
+<!-- 王者荣耀新闻栏上半部分 -->
+    <div class="news-section">
+
+      <!-- 左边轮播图 -->
+      <div class="news-banner">
+        <!-- 单选按钮 -->  <!-- 单选按钮和label放入一个容器，方便管理 -->
+         <div class="slider-wrapper">
+          <input type="radio" name="slider" id="slide1" checked>
+          <input type="radio" name="slider" id="slide2">
+          <input type="radio" name="slider" id="slide3">
+          <input type="radio" name="slider" id="slide4">
+          <input type="radio" name="slider" id="slide5">
+        <!-- 图片区域 -->
+        <ul class="image-list">
+
+          <li class="item item1">
+            <a href="#">
+              <img src="./image/news1.png" alt="圆满收官">
+            </a>
+          </li>
+          <li class="item item2">
+            <a href="#">
+              <img src="./image/news2.jpg" alt="五五开虾">
+            </a>
+          </li>
+          <li class="item item3">
+            <a href="#">
+              <img src="./image/news3.jpg" alt="大型结实搭子现场">
+            </a>
+          </li>
+          <li class="item item4">
+            <a href="#">
+              <img src="./image/new4.jpg" alt="神树祈愿">
+            </a>
+          </li>
+          <li class="item item5">
+            <a href="#">
+              <img src="./image/news5.png" alt="线下赛点公示">
+            </a>
+          </li>
+        </ul>
+        <!-- 导航栏 -->
+        <ul class="image-nav">
+          <li class="nav-item">
+            <label for="slide1">圆满收官</label>
+          </li>
+          <li class="nav-item">
+            <label for="slide2">五五开虾</label>
+          </li>
+          <li class="nav-item">
+            <label for="slide3">大型结实搭子现场</label>
+          </li>
+          <li class="nav-item">
+            <label for="slide4">神树祈愿</label>
+          </li>
+          <li class="nav-item">
+            <label for="slide5">线下赛点公式</label>
+          </li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- 右边新闻列表 -->
+      <div class="news-list">
+        <div class="title_icon title">
+          <a href="#"></a>
+        </div>
+        <div class="news-title">
+          <a class="news-title news-title-item" href="#">全民电竞狂欢，五一嗨翻孝感!第十一届王者荣耀全国大赛圆满收官</a>
+          <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_hot">热门</span><span> 诚邀王者荣耀电竞派对，孝感热辣开虾啦!!</span><span>04-29</span></a>
+          <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_hot">热门</span><span> 大型结识搭子现场——线下见面，快乐翻倍!</span><span>04-28</span></a>
+          <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_hot">热门</span><span> 电竞派对神树祈愿活动上线!豪华好礼等你拿!</span><span>04-27</span></a>
+          <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_newest">最新</span><span> 赛点公示 | 第十一届王者荣耀全国大赛本周线下赛点一览</span><span>04-26</span></a>
+          <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_newest">最新</span><span> 王者荣耀电竞派对「节目单+嘉宾行程」高能剧透!</span><span>04-25</span></a>
+          <a class="news-title news-title-item" href="#"><span class="icon_type icon_type_newest">最新</span><span> 战至巅峰老友聚会!名校名企巅峰对决!电竞舞台的快乐你想象不到<span>王者荣耀电竞派对</span></span><span>04-24</span></a>
+        </div>
+      </div>
+
+    </div><!-- 王者荣耀新闻栏上半部分结束 -->
+
+<!-- 王者荣耀新闻栏下半部分 -->
+    <!-- 四个列表图标 -->
+    <ul class="entrance-section">
+      <li class="item">
+        <a href="#">
+          <img src="./image/纪念卡片.png" alt="纪念卡片">
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <img src="./image/人才计划.png" alt="人才计划">
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <img src="./image/高校菁英杯.png" alt="高校菁英杯">
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <img src="./image/高校联赛.png" alt="高校联赛">
+        </a>
+      </li>
+    </ul><!-- 王者荣耀新闻栏下半部分结束 -->
+
+  </div>
+</body>
+</html>

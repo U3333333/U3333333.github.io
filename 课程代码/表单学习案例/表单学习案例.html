@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+  body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container{
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .form-group{
+    display: flex;
+    align-items: center;
+    margin: 18px auto;
+    max-width: 500px;
+  }
+
+  .form-group label{
+    display:block;
+    width: 70px; /* 固定宽度，控制左边label宽度 */
+    margin-right: 10px;
+  }
+  .form-group .sex{
+    width:20px
+  }
+  .form-group input,.form-group textarea,.form-group select {
+    flex: 1; /* 右侧自动占满剩余空间 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .form-options{
+    display: flex;
+    align-items: center;
+    margin:0 5px 0 10px;
+  }
+  h2{
+    text-align: center;
+    margin-bottom:20px;
+    font-weight:700;
+    font-size: 25px;
+    color: #333;
+  }
+  .button{
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .btn-submit {
+      background-color: #3498db;
+      color: #fff;
+      margin:auto 40px;
+    }
+
+  .btn-reset {
+      background-color: #e74c3c;
+      color: #fff;
+      margin:auto 40px;
+    }
+
+  .btn-default {
+      background-color: #95a5a6;
+      color: #fff;
+      margin:auto 40px;
+    }
+  .note{
+    color:#95a5a6;
+  }
+  #range{
+    background-color:darkgray;
+    width: 100%;
+  }
+</style>
+<body>
+
+<div class="form-container">
+  <form action="http://www.baidu.com" method="post">
+    <h2 class="form-title">表单学习示例</h2>
+
+<!-- 文本 -->
+  <div class="form-group">
+    <label for="text">文本:</label>
+      <input type="text" id="text" name="text" placeholder="请输入用户名">
+  </div>
+<!-- 密码 -->
+  <div class="form-group">
+    <label for="password">密码:</label>
+      <input type="password" id="password" name="password" placeholder="请输入密码">
+  </div>
+<!-- 多行文本 -->
+  <div class="form-group">
+    <label for="textarea">多行文本:</label>
+      <textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="请输入内容">
+      </textarea>
+  </div>
+<!-- 性别 -->
+  <div class="form-group">
+    <label for="sex">性别:</label>
+    <div class="form-options sex">
+      <input type="radio" name="sex" value="male" id="male"><label for="male">男</label>
+      <input type="radio" name="sex" value="Female" id="Female"><label for="Female">女</label>
+    </div>
+  </div>
+<!-- 兴趣 -->
+  <div class="form-group">
+    <label for="interest">兴趣:</label>
+    <div class="form-options">
+      <label><input type="checkbox" name="interest" value="music">音乐</label>
+      <label><input type="checkbox" name="interest" value="sports">运动</label>
+    </div>
+  </div>
+<!-- 下拉选择 -->
+  <div class="form-group">
+    <label for="select">下拉选择:</label>
+      <select name="select" id="select">
+        <option value="">请选择</option>
+        <option value="1">选项1</option>
+        <option value="2">选项2</option>
+      </select>
+  </div>
+<!-- 上传文件 -->
+  <div class="form-group">
+    <label for="file">上传文件:</label>
+      <input type="file" name="file" id="file">
+  </div>
+<!-- 隐藏字段 -->
+  <div class="form-group">
+    <label for="hidden">隐藏字段:</label>
+      <input type="hidden" name="hidden" value="hidden">
+      <span class="note">(用户看不到)</span>
+  </div>
+<!-- 日期 -->
+  <div class="form-group">
+    <label for="date">日期:</label>
+      <input type="date" placeholder="yyyy/mm/dd">
+  </div>
+<!-- 时间 -->
+  <div class="form-group">
+    <label for="time">时间:</label>
+      <input type="time" placeholder="--：--"> 
+  </div>
+<!-- 日期时间 -->
+  <div class="form-group">
+    <label for="datetime">
+      日期时间:</label>
+      <input type="datetime-local" placeholder="yyyy/mm/dd --：--"> 
+  </div>
+<!-- 范围 -->
+  <div class="form-group">
+    <label for="range">
+      范围:</label>
+      <input type="range" id="range">
+  </div>
+<!-- 数字 -->
+  <div class="form-group">
+    <label for="number">数字:</label>
+      <input type="number">
+  </div>
+<!-- 颜色 -->
+  <div class="form-group">
+    <label for="color">颜色:</label>
+      <input type="color">
+  </div>
+
+<!-- 提交&重置&普通按钮 -->
+
+<div class="form-group">
+  <input class="button btn-submit" type="submit" value="提交">
+  <input class="button btn-reset" type="reset" value="重置">
+  <input class="button btn-default" type="button" value="普通按钮">
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

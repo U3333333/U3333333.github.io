@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小可爱</title>
+
+<style>
+    .box::before{
+      content:"123";
+      display: inline-block;
+      color: #000;
+      background: color #fff;;
+      font-size:20px
+    }
+    .box::after{
+      content:"";
+      display: inline-block;
+      width: 1em; /* 根据字体大小缩放 */
+      height: 1em;
+      background-image: url(../image/A.jpg); /* 替换成你的图片地址 */
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-left: 0.2em;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <div class="box">你是一个小可爱</div>
+</body>
+
+</html>
